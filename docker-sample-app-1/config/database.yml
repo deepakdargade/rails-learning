@@ -1,0 +1,8 @@
+production:
+  adapter: mysql2
+  pool: 15
+  username: root
+  password: classpro2930
+  port: 3306
+  database: docker-sample-app-1_production
+  host: localhost

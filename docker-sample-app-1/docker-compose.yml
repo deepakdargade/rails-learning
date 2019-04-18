@@ -1,0 +1,27 @@
+version: '3'
+
+volumes:
+  mysql_data: {}
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./docker/app/DockerFile
+    depends_on:
+      - db
+  
+  db:
+    image: mysql
+    volumes:
+      - mysql_data:/usr/local/var/mysql/
+  
+  web:
+    build:
+      context: .
+      dockerfile: ./docker/web/DockerFile
+    depends_on:
+      - app
+    ports:
+      - 8080:80
+        
